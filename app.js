@@ -60,8 +60,8 @@ app.get("/states/:stateId/", async (req, resp) => {
 app.post("/districts/", async (req, resp) => {
   const districtd = req.body;
   const { districtName, stateId, cases, cured, active, deaths } = districtd;
-  const distradd = `INSERT INTO district (district_name,state_id,cured,active,deaths)
-    VALUES ('${districtName}','${stateId}','${cured}','${active}','${deaths}');`;
+  const distradd = `INSERT INTO district (district_name,state_id,cases,cured,active,deaths)
+    VALUES ('${districtName}','${stateId}','${cases}','${cured}','${active}','${deaths}');`;
   const district = await db.run(distradd);
   const districtId = district.lastID;
   //console.log(districtId);
